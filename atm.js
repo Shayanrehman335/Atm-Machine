@@ -7,7 +7,7 @@ console.log(message);
 let pin_ans = await inquirer.prompt({
     type: "number",
     name: "ans",
-    message: "Please enter pin code: "
+    message: "Please enter pin code: ",
 });
 if (pin_ans.ans === 7262) {
     do {
@@ -15,13 +15,13 @@ if (pin_ans.ans === 7262) {
             type: "list",
             name: "list",
             message: "Select any option",
-            choices: ["Deposit", "Withdraw", "Fast Cash", "Balance Check"]
+            choices: ["Deposit", "Withdraw", "Fast Cash", "Balance Check"],
         });
         if (ans.list === "Deposit") {
             let ans = await inquirer.prompt({
                 type: "number",
                 name: "Deposit_amount",
-                message: "Please Enter your amount:"
+                message: "Please Enter your amount:",
             });
             if (ans.Deposit_amount > 0) {
                 myBalance = myBalance + ans.Deposit_amount;
@@ -32,7 +32,7 @@ if (pin_ans.ans === 7262) {
             let ans = await inquirer.prompt({
                 type: "number",
                 name: "Withdraw_amount",
-                message: "Please Enter your amount"
+                message: "Please Enter your amount",
             });
             if (ans.Withdraw_amount <= myBalance) {
                 myBalance = myBalance - ans.Withdraw_amount;
@@ -47,7 +47,7 @@ if (pin_ans.ans === 7262) {
                 type: "list",
                 name: "Fast_Cash",
                 message: "Please select one",
-                choices: ["500", "1000", "2000", "5000", "10000"]
+                choices: ["500", "1000", "2000", "5000", "10000"],
             });
             if (ans.Fast_Cash < -myBalance) {
                 if (ans.Fast_Cash === "500") {
@@ -78,7 +78,7 @@ if (pin_ans.ans === 7262) {
         let while_ans = await inquirer.prompt({
             type: "confirm",
             name: "condition",
-            message: "Do you want to continue:"
+            message: "Do you want to continue:",
         });
         if (while_ans.condition === false) {
             isContinue = false;
